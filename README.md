@@ -2,7 +2,7 @@
 
 The source code and the python interfaces for generating similarity-aware nonuniform circle packing layouts.
 
-<video src="./video/scp-short.mp4"></video>
+https://raw.githubusercontent.com/SCP-VIS2023/SCP/master/video/scp-short.mp4
 
 ## Contents
 
