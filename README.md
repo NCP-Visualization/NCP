@@ -1,6 +1,6 @@
-# SCP: Similarity-Aware Nonuniform Circle Packing
+# NCP: Neighborhood-Preserving Nonuniform Circle Packing
 
-The source code and the python interfaces for generating similarity-aware nonuniform circle packing layouts.
+The source code and the python interfaces for generating neighborhood-preserving nonuniform circle packing.
 
 https://user-images.githubusercontent.com/129270678/230307020-150cc01d-cbd0-4cc2-8aa9-d343b506ef1a.mp4
 
@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/129270678/230307020-150cc01d-cbd0-4cc2
 
 + **utils**: some necessary libraries written in C++, need to be compiled into python packages for usage.
 
-+ **video**: a video that introduces the basic idea of **SCP**.
++ **video**: a video that introduces the basic idea of **NCP**.
 
 ## Quick Start
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 ```
 
 
-A simple interface to call our SCP method to generate similarity-aware circle packing layout is in `interface.py`:
+A simple interface to call our NCP method to generate neighborhood-preserving circle packing is in `interface.py`:
 ```python
 def SCP(dataset_name,
         feature,
