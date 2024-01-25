@@ -1,15 +1,16 @@
 from Solver import Solver
 
 
-def SCP(dataset_name,
+def NCP(dataset_name,
         feature,
         label,
         similarity,
         importance,
-        attraction=85,
-        gravity=85,
-        chebyshev=False,
-        utopian=True
+        gravity=1,
+        gamma=2,
+        lamb=2,
+        iterations=1250,
+        utopian=True,
         ):
     my_solver = Solver()
     my_solver.dataset = dataset_name
@@ -22,15 +23,16 @@ def SCP(dataset_name,
     }
 
     algorithm_config = {
-        'optimization': 'DivideAndConquer',
+        'optimization': 'Sep-Force-H-CPD',
         'compaction': 'Box2D',
-        'attraction': attraction,
         'gravity': gravity,
-        'chebyshev': chebyshev,
+        'gamma': gamma,
+        'lambda': lamb,
+        'iterations': iterations,
         'utopian': utopian
     }
 
-    my_solver.set_algorithm('SCP')
+    my_solver.set_algorithm('NCP')
     my_solver.set_algorithm_config(algorithm_config)
 
     my_solver.run()

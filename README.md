@@ -1,8 +1,6 @@
-# NCP: Neighborhood-Preserving Nonuniform Circle Packing
+# NCP: Neighborhood-Preserving Non-Uniform Circle Packing
 
 The source code and the python interfaces for generating neighborhood-preserving nonuniform circle packing.
-
-https://user-images.githubusercontent.com/129270678/230307020-150cc01d-cbd0-4cc2-8aa9-d343b506ef1a.mp4
 
 ## Contents
 
@@ -24,7 +22,7 @@ pip install -r requirements.txt
  A simple example code to call our circle packing algorithm with the sample data is in `interface_test.py`:
 
 ```python
-from interface import SCP
+from interface import NCP
 import os
 import numpy as np
 
@@ -48,7 +46,7 @@ def load_dataset(dataset_name):
 if __name__ == "__main__":
     dataset = load_dataset('boston_0.1_1')
 
-    result = SCP('boston_0.1_1', dataset['feature'], dataset['label'],
+    result = NCP('boston_0.1_1', dataset['feature'], dataset['label'],
                 dataset['similarity'], dataset['importance'])
 
     print(len(result['positions']))
@@ -59,15 +57,16 @@ if __name__ == "__main__":
 
 A simple interface to call our NCP method to generate neighborhood-preserving circle packing is in `interface.py`:
 ```python
-def SCP(dataset_name,
+def NCP(dataset_name,
         feature,
         label,
         similarity,
         importance,
-        attraction=85,
-        gravity=85,
-        chebyshev=False,
-        utopian=True
+        gravity=1,
+        gamma=2,
+        lamb=2,
+        iterations=1250,
+        utopian=True,
         ):
     my_solver = Solver()
     my_solver.dataset = dataset_name
@@ -80,15 +79,16 @@ def SCP(dataset_name,
     }
 
     algorithm_config = {
-        'optimization': 'DivideAndConquer',
+        'optimization': 'Sep-Force-H-CPD',
         'compaction': 'Box2D',
-        'attraction': attraction,
         'gravity': gravity,
-        'chebyshev': chebyshev,
+        'gamma': gamma,
+        'lambda': lamb,
+        'iterations': iterations,
         'utopian': utopian
     }
 
-    my_solver.set_algorithm('SCP')
+    my_solver.set_algorithm('NCP')
     my_solver.set_algorithm_config(algorithm_config)
 
     my_solver.run()

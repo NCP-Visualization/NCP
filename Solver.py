@@ -1,13 +1,13 @@
 import os
 import numpy as np
 from utils.config import config
-from SCPPacking import SCPPacking
+from NCPPacking import NCPPacking
 from D3SimiFrontChain import D3SimiFrontChain
 from AEPacking import AEPacking
 from Evaluator import Evaluator
 import time
 import Logger as Logger
-from SCPPacking import computePowerDiagramBruteForce
+from NCPPacking import computePowerDiagramBruteForce
 
 
 class Solver(object):
@@ -67,8 +67,8 @@ class Solver(object):
         self.run_flag = True
         self.algorithm = algorithm_name
         ppl = None
-        if self.algorithm == "SCP":
-            ppl = SCPPacking
+        if self.algorithm == "NCP":
+            ppl = NCPPacking
         elif self.algorithm == 'SimiFrontChain':
             ppl = D3SimiFrontChain
         elif self.algorithm == 'AE':
@@ -106,8 +106,6 @@ class Solver(object):
                 # self.logger.save_time('total time', end_time - start_time)
                 self.positions = positions
                 self.radii = radii
-                if self.algorithm == "Planar":
-                    self.packing_links = self.packer.getLinks()
                 if evaluate:
                     metrics = self.evaluate()
                 else:

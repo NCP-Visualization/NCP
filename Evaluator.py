@@ -6,7 +6,7 @@ import pickle
 import os
 import cv2
 from utils.Floyd import Floyd
-from SCPPacking import computePowerDiagramBruteForce, cellArea
+from NCPPacking import computePowerDiagramBruteForce, cellArea
 from utils.config import config
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score

@@ -15,3 +15,7 @@ cd ..
 cd Floyd
 python setup.py build_ext --inplace
 cd ..
+
+cd EPD
+python setup.py build_ext --inplace
+cd ..

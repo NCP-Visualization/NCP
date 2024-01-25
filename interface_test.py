@@ -1,4 +1,4 @@
-from interface import SCP
+from interface import NCP
 import os
 import numpy as np
 
@@ -22,7 +22,7 @@ def load_dataset(dataset_name):
 if __name__ == "__main__":
     dataset = load_dataset('boston_0.1_1')
 
-    result = SCP('boston_0.1_1', dataset['feature'], dataset['label'],
+    result = NCP('boston_0.1_1', dataset['feature'], dataset['label'],
                 dataset['similarity'], dataset['importance'])
 
     print(len(result['positions']))
