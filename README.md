@@ -8,8 +8,6 @@ The source code and the python interfaces for generating neighborhood-preserving
 
 + **utils**: some necessary libraries written in C++, need to be compiled into python packages for usage.
 
-+ **video**: a video that introduces the basic idea of **NCP**.
-
 ## Quick Start
 
 Please download our source code and install/build the necessary python packages.
